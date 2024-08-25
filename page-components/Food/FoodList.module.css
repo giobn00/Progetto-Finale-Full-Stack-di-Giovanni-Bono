@@ -1,0 +1,69 @@
+.root {
+  padding-bottom: 4rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;  
+}
+
+.Wrapper {
+  display: flex;  
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.card{
+  margin-bottom: 1rem;
+  border-radius: 5px;
+  background: var(--card);
+  border: 1px solid var(--accents-2);
+  padding: 24px;
+  width: 100%;
+  max-width: 720px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  color: white;
+}
+
+.title{
+  margin-bottom: 1rem;
+}
+
+.content{
+  display: flex;  
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--accents-2);
+  font-size: 0.75rem; 
+  color: var(--accents-6);
+}
+
+.footerContent{
+  margin-bottom: 1rem;
+}
+
+.footerTitle{
+  margin-bottom: 0.5rem;
+}
+
+.footerDescription{
+  margin-bottom: 0.5rem;
+}

@@ -1,0 +1,32 @@
+.title {
+  font-size: 8rem;
+  text-align: center;
+  font-weight: 800;
+  line-height: 1.1;
+  margin: 24px 0 64px;
+}
+
+.title > span {
+  display: block;
+  padding-bottom: 10px;
+  margin-bottom: -20px;
+}
+
+.buttons {
+  max-width: 26rem;
+  margin: 0 auto 64px;
+}
+
+.button {
+  height: 50px;
+  padding: 0px 25px;
+  min-width: 200px;
+}
+
+.subtitle {
+  color: var(--secondary);
+  font-weight: 400;
+  font-size: 1.25rem;
+  text-align: center;
+  margin: 8px 0 64px;
+}
