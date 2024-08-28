@@ -1,6 +1,5 @@
-import { Button } from '@/components/Button';
-import { ButtonLink } from '@/components/Button/Button';
-import { Input } from '@/components/Input';
+import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
 import { Spacer, Wrapper } from '@/components/Layout';
 import { TextLink } from '@/components/Text';
 import { fetcher } from '@/lib/fetch';
@@ -21,7 +20,7 @@ const Login = () => {
   const router = useRouter();
   useEffect(() => {
     if (isValidating) return;
-    if (user) router.replace('/feed');
+    if (user) router.replace('/');
   }, [user, router, isValidating]);
 
   const onSubmit = useCallback(
@@ -54,42 +53,40 @@ const Login = () => {
     <Wrapper className={styles.root}>
       <div className={styles.main}>
         <h1 className={styles.title}>Login to App</h1>
-        <form onSubmit={onSubmit}>
+        <form onSubmit={onSubmit} className='text-black' >
           <Input
             ref={emailRef}
-            htmlType="email"
             autoComplete="email"
             placeholder="Email Address"
-            ariaLabel="Email Address"
             size="large"
             required
           />
           <Spacer size={0.5} axis="vertical" />
           <Input
             ref={passwordRef}
-            htmlType="password"
             autoComplete="current-password"
             placeholder="Password"
-            ariaLabel="Password"
             size="large"
             required
           />
           <Spacer size={0.5} axis="vertical" />
-          <Button
-            htmlType="submit"
-            className={styles.submit}
-            type="success"
-            size="large"
-            loading={isLoading}
-          >
-            Log in
-          </Button>
-          <Spacer size={0.25} axis="vertical" />
-          <Link href="/forget-password" passHref>
-            <ButtonLink type="success" size="large" variant="ghost">
-              Forget password
-            </ButtonLink>
-          </Link>
+          <div className='flex flex-row justify-between text-black' >
+            <Button  
+                variant='outline' 
+                className='border-black rounded-xl m-3 '
+            >
+              Log in
+            </Button>
+            <Spacer size={0.25} axis="vertical" />
+            <Link href="/forget-password" passHref>
+              <Button 
+                variant='outline' 
+                className='border-black rounded-xl m-3 '
+                >
+                Forget password
+              </Button>
+            </Link>
+          </div>
         </form>
       </div>
       <div className={styles.footer}>

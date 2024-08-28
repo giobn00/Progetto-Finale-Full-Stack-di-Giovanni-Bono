@@ -1,6 +1,5 @@
 import Head from 'next/head';
 import Footer from './Footer';
-import styles from './Layout.module.css';
 import Nav from './Nav';
 
 const Layout = ({ children }) => {
@@ -28,7 +27,7 @@ const Layout = ({ children }) => {
         />
       </Head>
       <div className='min-h-screen flex flex-col justify-between'>
-        <Nav className="flex-none"/>
+        <Nav />
         <main className="grow content-center ">{children}</main>
         <Footer className="flex-none"/>
       </div>

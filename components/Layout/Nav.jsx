@@ -1,11 +1,10 @@
 import { Avatar } from '@/components/Avatar';
-import { Button, ButtonLink } from '@/components/Button';
+import { Button } from '@/components/ui/button';
 import { fetcher } from '@/lib/fetch';
 import { useCurrentUser } from '@/lib/user';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useCallback, useEffect, useRef, useState } from 'react';
-
 import toast from 'react-hot-toast';
 import Container from './Container';
 import styles from './Nav.module.css';
@@ -91,8 +90,8 @@ const Nav = () => {
   const { data: { user } = {}, mutate } = useCurrentUser();
 
   return (
-    <nav className={styles.nav}>
-      <Wrapper className={styles.wrapper}>
+    <nav className='p-5'>
+      <div>
         <Container
           className={styles.content}
           alignItems="center"
@@ -101,7 +100,7 @@ const Nav = () => {
           <Link href="/">
             <a className={styles.logo}>Cookies Cracking</a>
           </Link>
-          <Container>
+          <Container className=' text-black '>
             {user ? (
               <>
                 <UserMenu user={user} mutate={mutate} />
@@ -109,18 +108,19 @@ const Nav = () => {
             ) : (
               <>
                 <Link passHref href="/login">
-                  <ButtonLink
-                    size="small"
-                    type="success"
-                    variant="ghost"
-                    color="link"
+                  <Button
+                    className='border-black rounded-xl m-3 '
+                    variant="outline"
                   >
                     Log in
-                  </ButtonLink>
+                  </Button>
                 </Link>
                 <Spacer axis="horizontal" size={0.25} />
                 <Link passHref href="/sign-up">
-                  <Button size="small" type="success">
+                  <Button 
+                    className='border-black rounded-xl m-3 '
+                    variant="outline"
+                  >
                     Sign Up
                   </Button>
                 </Link>
@@ -128,7 +128,7 @@ const Nav = () => {
             )}
           </Container>
         </Container>
-      </Wrapper>
+      </div>
     </nav>
   );
 };

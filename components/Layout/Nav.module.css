@@ -44,6 +44,9 @@
   right: 0;
   position: absolute;
   z-index: 20;
+  border-radius: 5px;
+  color: black;
+  background:white;
 }
 
 .menu {

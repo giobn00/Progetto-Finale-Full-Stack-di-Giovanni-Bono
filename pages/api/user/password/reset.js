@@ -27,6 +27,7 @@ handler.post(
     const db = await getMongoDb();
 
     const email = normalizeEmail(req.body.email);
+    console.log(email)
     const user = await findUserByEmail(db, email);
     if (!user) {
       res.status(400).json({

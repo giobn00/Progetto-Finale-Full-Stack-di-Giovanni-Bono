@@ -1,5 +1,5 @@
-import { Button } from '@/components/Button';
-import { Input } from '@/components/Input';
+import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
 import { Container, Spacer, Wrapper } from '@/components/Layout';
 import { TextLink } from '@/components/Text';
 import { fetcher } from '@/lib/fetch';
@@ -53,27 +53,23 @@ const SignUp = () => {
     <Wrapper className={styles.root}>
       <div className={styles.main}>
         <h1 className={styles.title}>Join Now</h1>
-        <form onSubmit={onSubmit}>
+        <form onSubmit={onSubmit} className='text-black '>
           <Container alignItems="center">
             <p className={styles.subtitle}>Your login</p>
             <div className={styles.seperator} />
           </Container>
           <Input
             ref={emailRef}
-            htmlType="email"
             autoComplete="email"
             placeholder="Email Address"
-            ariaLabel="Email Address"
             size="large"
             required
           />
           <Spacer size={0.5} axis="vertical" />
           <Input
             ref={passwordRef}
-            htmlType="password"
             autoComplete="new-password"
             placeholder="Password"
-            ariaLabel="Password"
             size="large"
             required
           />
@@ -86,7 +82,6 @@ const SignUp = () => {
             ref={usernameRef}
             autoComplete="username"
             placeholder="Username"
-            ariaLabel="Username"
             size="large"
             required
           />
@@ -95,17 +90,13 @@ const SignUp = () => {
             ref={nameRef}
             autoComplete="name"
             placeholder="Your name"
-            ariaLabel="Your name"
             size="large"
             required
           />
           <Spacer size={1} axis="vertical" />
           <Button
-            htmlType="submit"
-            className={styles.submit}
-            type="success"
-            size="large"
-            loading={isLoading}
+            className='border-black rounded-xl'
+            variant='outline'
           >
             Sign up
           </Button>
