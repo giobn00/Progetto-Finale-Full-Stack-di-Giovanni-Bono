@@ -22,7 +22,7 @@ const Post = ({ post }) => {
       <Card className='felx max-w-96 m-auto mt-3 mb-3'>
         <CardHeader>
           <Link href={`/user/${post.creator.username}`}>
-            <a className='flex flex-row ' >
+            <div className='flex flex-row ' >
               <Avatar
                 size={36}
                 url={post.creator.profilePicture}
@@ -36,7 +36,7 @@ const Post = ({ post }) => {
               @{post.creator.username}
             </CardDescription>
             </div>
-            </a>
+            </div>
           </Link>
         </CardHeader>
         <CardContent className='flex flex-row justify-between '>

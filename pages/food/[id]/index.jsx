@@ -1,5 +1,4 @@
 import { Food } from '@/page-components/Food';
-import { useState } from 'react';
 import Head from 'next/head';
 import { findFoodById } from '@/api-lib/db';
 import { getMongoDb } from '@/api-lib/mongodb';

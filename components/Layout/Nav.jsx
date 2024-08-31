@@ -9,7 +9,6 @@ import toast from 'react-hot-toast';
 import Container from './Container';
 import styles from './Nav.module.css';
 import Spacer from './Spacer';
-import Wrapper from './Wrapper';
 
 const UserMenu = ({ user, mutate }) => {
   const menuRef = useRef();
