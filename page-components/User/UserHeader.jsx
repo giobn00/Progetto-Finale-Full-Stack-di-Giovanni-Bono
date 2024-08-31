@@ -9,14 +9,14 @@ import styles from './UserHeader.module.css';
 
 const UserHeader = ({ user }) => {
   return (
-    <Card  className='flex flex-col justify-center max-w-96'>
-      <CardHeader>
+    <Card  className='flex flex-col justify-center max-w-96 m-auto'>
+      <CardHeader className='m-auto'>
           <Avatar size={168} username={user.username} url={user.profilePicture} />
       </CardHeader>
       <CardContent className='flex flex-col'>
           <div className={styles.name}>{user.name}</div>
           <div className={styles.username}>@{user.username}</div>
-        <p className={styles.bio}>{user.bio}</p>
+          <p className={styles.bio}>{user.bio}</p>
       </CardContent>
     </Card>
   );

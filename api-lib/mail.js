@@ -2,10 +2,11 @@
 // However, it is recommended to switch over to dedicated email services
 // like Mailgun, AWS SES, etc.
 import nodemailer from 'nodemailer';
+const mg = require('nodemailer-mailgun-transport');
 
-const nodemailerConfig = process.env.NODEMAILER_CONFIG
+const nodemailerConfig = mg(process.env.NODEMAILER_CONFIG
   ? JSON.parse(process.env.NODEMAILER_CONFIG)
-  : {};
+  : {});
 
 const transporter = nodemailer.createTransport(nodemailerConfig);
 
@@ -24,5 +25,5 @@ export async function sendMail({ from, to, subject, html }) {
 
 export const CONFIG = {
   // TODO: Replace with the email you want to use to send email
-  from: nodemailerConfig?.auth?.user,
+  from: process.env.EMAIL_FROM,
 };

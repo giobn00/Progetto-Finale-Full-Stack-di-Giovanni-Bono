@@ -32,7 +32,7 @@ const EmailVerify = ({ user }) => {
     <Card className='flex flex-row border-black rounded-xl p-5 m-5'>
       <Container flex={1}>
         <p>
-          <strong>Note:</strong> <span>Your email</span> 
+          <strong>Note:</strong> <span>Your email </span> 
           <span className={styles.link}>{user.email}</span> is unverified.
         </p>
       </Container>

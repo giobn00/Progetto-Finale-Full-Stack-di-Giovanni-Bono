@@ -12,6 +12,7 @@ export default function FoodPage({data}) {
       </Head>
       <Food 
         foodId= {data.id}
+        name= {data.generic_name || data.product_name_it}
       />
     </>
   );

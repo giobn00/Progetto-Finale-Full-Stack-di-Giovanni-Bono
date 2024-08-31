@@ -55,7 +55,29 @@ export async function insertPost(db, { content, creatorId }) {
     creatorId,
     createdAt: new Date(),
   };
-  const { insertedId } = await db.collection('posts').insertOne(post);
+  const { insertedId } = await db.collection('posts').update({ content: content, creatorId: new ObjectId(creatorId)}, {$set: post}, { upsert: true} );
   post._id = insertedId;
   return post;
+}
+
+export async function findPostByIdAndCreator(db, content, creatorId) { 
+  const posts = await db
+  .collection('posts')
+  .aggregate([
+    { $match: { content: content, creatorId: new ObjectId(creatorId) } },
+    { $limit: 1 },
+    {
+      $lookup: {
+        from: 'users',
+        localField: 'creatorId',
+        foreignField: '_id',
+        as: 'creator',
+      },
+    },
+    { $unwind: '$creator' },
+    { $project: dbProjectionUsers('creator.') },
+  ])
+  .toArray();
+if (!posts[0]) return null;
+return posts[0];
 }

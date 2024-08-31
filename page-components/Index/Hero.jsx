@@ -26,13 +26,13 @@ const Hero = () => {
               placeholder="Search..."
               name="search"
               ref={serchRef}
-              className="rounded-l-3xl"
+              className="rounded-l-3xl rounded-r-none"
           />
 
           <Button 
             type="submit" 
             onClick={search} 
-            className="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded-r-3xl"
+            className="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded-r-3xl rounded-l-none"
             >
               Search
           </Button>

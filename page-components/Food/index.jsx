@@ -13,17 +13,15 @@ import { FcLike } from "react-icons/fc";
 import { Button } from "@/components/ui/button"
 import { usePostPages } from '@/lib/post';
 import { fetcher } from '@/lib/fetch';
-import { useCurrentUser } from '@/lib/user';
-import Link from 'next/link';
-import { useRouter } from 'next/router';
-import { useCallback, useRef, useState } from 'react';
+import { useCallback } from 'react';
 import toast from 'react-hot-toast';
+import { useCurrentUser } from '@/lib/user';
 
 
-export const Food = ({foodId}) => {
+export const Food = ({foodId, foodName}) => {
   const { data, error, isLoading } = useFoodPages({"foodId": foodId });
-  //console.log(data)
-  
+  const isUserLogegdIn = useCurrentUser();
+    
   const { mutate } = usePostPages();
 
   const onClick = useCallback(
@@ -33,7 +31,7 @@ export const Food = ({foodId}) => {
         await fetcher('/api/posts', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ content: foodId }),
+          body: JSON.stringify({ content: foodId, contentName: foodName  }),
         });
         toast.success('You have posted successfully');
         // refresh post lists
@@ -54,9 +52,10 @@ export const Food = ({foodId}) => {
           <CardHeader>
             <CardTitle className='flex flex-row justify-between '>
                 {data?.generic_name || data?.product_name_it}  {data?.quantity}
+              {isUserLogegdIn.data && isUserLogegdIn.data.user? 
               <Button className='m-5'  variant="outline" size="icon">
                <FcLike onClick={onClick} />
-              </Button>
+              </Button> : null}
             </CardTitle>
           </CardHeader>
           <CardContent>

@@ -5,7 +5,6 @@ import { Post } from '@/components/Post';
 import { Text } from '@/components/Text';
 import { usePostPages } from '@/lib/post';
 import Link from 'next/link';
-import styles from './UserPosts.module.css';
 
 const UserPosts = ({ user }) => {
   const { data, size, setSize, isLoadingMore, isReachingEnd } = usePostPages({
@@ -15,23 +14,24 @@ const UserPosts = ({ user }) => {
     ? data.reduce((acc, val) => [...acc, ...val.posts], [])
     : [];
 
+
   return (
-    <div className={styles.root}>
+    <div>
       <Spacer axis="vertical" size={1} />
-      <Wrapper>
+      <Wrapper >
         {posts.map((post) => (
           <Link
             key={post._id}
-            href={`/user/${post.creator.username}/post/${post._id}`}
+            href={`/food/${post.content}`}
           >
-            <a className={styles.wrap}>
-              <Post className={styles.post} post={post} />
+            <a>
+              <Post post={post} />
             </a>
-          </Link>
+          </Link>  
         ))}
         <Container justifyContent="center">
           {isReachingEnd ? (
-            <Text color="secondary">No more posts are found</Text>
+            <Text color="secondary">No more Likes are found</Text>
           ) : (
             <Button
               variant="ghost"
