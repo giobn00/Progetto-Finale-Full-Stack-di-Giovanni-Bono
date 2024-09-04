@@ -2,6 +2,7 @@ import { findPostById } from '@/api-lib/db';
 import { getMongoDb } from '@/api-lib/mongodb';
 import { UserPost } from '@/page-components/UserPost';
 import Head from 'next/head';
+export const config = { runtime: 'nodejs' };
 
 export default function UserPostPage({ post }) {
   if (typeof post.createdAt !== 'string') {

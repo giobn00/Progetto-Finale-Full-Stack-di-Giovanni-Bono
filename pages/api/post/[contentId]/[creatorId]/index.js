@@ -2,6 +2,7 @@ import { findPostByIdAndCreator } from '@/api-lib/db';
 import { getMongoDb } from '@/api-lib/mongodb';
 import { ncOpts } from '@/api-lib/nc';
 import nc from 'next-connect';
+export const config = { runtime: 'nodejs' };
 
 const handler = nc(ncOpts);
 

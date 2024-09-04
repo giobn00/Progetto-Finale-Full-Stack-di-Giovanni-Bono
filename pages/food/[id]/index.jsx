@@ -2,6 +2,7 @@ import { Food } from '@/page-components/Food';
 import Head from 'next/head';
 import { findFoodById } from '@/api-lib/db';
 import { getMongoDb } from '@/api-lib/mongodb';
+export const config = { runtime: 'nodejs' };
 
 export default function FoodPage({data}) {
   return (
