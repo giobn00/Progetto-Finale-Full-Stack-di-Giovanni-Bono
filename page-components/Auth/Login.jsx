@@ -63,6 +63,7 @@ const Login = () => {
           />
           <Spacer size={0.5} axis="vertical" />
           <Input
+            type="password"
             ref={passwordRef}
             autoComplete="current-password"
             placeholder="Password"

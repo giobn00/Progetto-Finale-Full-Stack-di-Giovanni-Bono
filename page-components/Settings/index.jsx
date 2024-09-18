@@ -82,6 +82,7 @@ const Auth = () => {
       <h4 className={styles.sectionTitle}>Password</h4>
       <form onSubmit={onSubmit}>
         <Input
+          type="password"
           autoComplete="current-password"
           ref={oldPasswordRef}
           label="Old Password"
@@ -89,6 +90,7 @@ const Auth = () => {
         />
         <Spacer size={0.5} axis="vertical" />
         <Input
+          type="password"
           autoComplete="new-password"
           ref={newPasswordRef}
           label="New Password"
