@@ -3,13 +3,18 @@ import { Input } from '@/components/ui/input';
 import { useRef } from 'react';
 import { useRouter } from "next/router";
 import { Wrapper } from "@/components/Layout";
+import toast from 'react-hot-toast';
 
 const Hero = () => {
   const serchRef = useRef();
   const router = useRouter();
   
   const search = () => { 
-    router.push(`/food/${serchRef.current.value}`);
+    if (serchRef.current.value.length == 13) {
+      router.push(`/food/${serchRef.current.value}`);
+    }else{ 
+      toast.error("Inserisci un codice valido");
+    }
   }
     
   return (
