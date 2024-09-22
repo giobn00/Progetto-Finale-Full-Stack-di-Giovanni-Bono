@@ -16,10 +16,11 @@ import { fetcher } from '@/lib/fetch';
 import { useCallback } from 'react';
 import toast from 'react-hot-toast';
 import { useCurrentUser } from '@/lib/user';
+import { error } from 'ajv/dist/vocabularies/applicator/dependencies';
 
 
 export const Food = ({foodId, foodName}) => {
-  const { data, error, isLoading } = useFoodPages({"foodId": foodId });
+  const { data } = useFoodPages({"foodId": foodId });
   const isUserLogegdIn = useCurrentUser();
     
   const { mutate } = usePostPages();
@@ -58,12 +59,19 @@ export const Food = ({foodId, foodName}) => {
               </Button> : null}
             </CardTitle>
           </CardHeader>
-          <CardContent>
-            <CardDescription>
-              {data?.ingredients_text}
-            </CardDescription>
-          </CardContent>
-          <CardFooter>
+          { data?.ingredients_text?
+                    <CardContent>
+                      <CardDescription>
+                        {data?.ingredients_text}
+                      </CardDescription>
+                    </CardContent> : null
+          }
+          {data?.error? 
+            <CardFooter>
+              <div className={styles.footerContent} >prodotto non torvato</div>
+            </CardFooter>
+            :
+            <CardFooter>
             <div className={styles.footerContent}>
               <div className={styles.footerTitle}>
                 <h5 className="mb-2 text-xl font-medium leading-tight">
@@ -84,6 +92,7 @@ export const Food = ({foodId, foodName}) => {
               </div>
             </div>
           </CardFooter>
+          }
         </Card>
     </div>
     

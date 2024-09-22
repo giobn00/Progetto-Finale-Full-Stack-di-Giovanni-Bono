@@ -12,6 +12,7 @@ handler.get(async (req, res) => {
   const food = await findFoodById(db, req.query.foodId);
   if (!food) {
     return res.status(404).json({ error: { message: 'Food is not found.' } });
+    
   }
   return res.json(food);
 });
