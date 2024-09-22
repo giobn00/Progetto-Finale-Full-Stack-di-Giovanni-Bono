@@ -43,7 +43,10 @@ const Hero = () => {
               Search
           </Button>
         </div>
-        <div>
+        <div >
+          <h1 className="grow mt-5 mb-0 text-center text-xl sm:text-xl md:text-xl lg:text-xl xl:text-xl  dark:text-white font-black leading-10">
+            Esempi di ricerche :
+          </h1>
           <ol>
             <li className="m-5 bg-white rounded-xl text-black p-3">
               <Link href="/food/8000500415573">Nutella Code : 8000500415573</Link>
