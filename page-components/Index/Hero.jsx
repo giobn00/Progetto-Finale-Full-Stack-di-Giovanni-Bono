@@ -4,6 +4,7 @@ import { useRef } from 'react';
 import { useRouter } from "next/router";
 import { Wrapper } from "@/components/Layout";
 import toast from 'react-hot-toast';
+import Link from 'next/link'
 
 const Hero = () => {
   const serchRef = useRef();
@@ -41,6 +42,22 @@ const Hero = () => {
             >
               Search
           </Button>
+        </div>
+        <div >
+          <h1 className="grow mt-5 mb-0 text-center text-xl sm:text-xl md:text-xl lg:text-xl xl:text-xl  dark:text-white font-black leading-10">
+            Esempi di ricerche :
+          </h1>
+          <ol>
+            <li className="m-5 bg-white rounded-xl text-black p-3">
+              <Link href="/food/8000500415573">Nutella Code : 8000500415573</Link>
+            </li>
+            <li className="m-5 bg-white rounded-xl text-black p-3">
+              <Link href="/food/2000000060560">Mozzarella Code : 2000000060560</Link>
+            </li>
+            <li className="m-5 bg-white rounded-xl text-black p-3">
+              <Link href="/food/0038452006622">Bresaola Code : 0038452006622</Link>
+            </li>
+          </ol>
         </div>
       </div>
     </Wrapper>
