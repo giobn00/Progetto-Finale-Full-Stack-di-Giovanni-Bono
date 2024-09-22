@@ -67,6 +67,7 @@ const SignUp = () => {
           />
           <Spacer size={0.5} axis="vertical" />
           <Input
+            type="password"
             ref={passwordRef}
             autoComplete="new-password"
             placeholder="Password"
